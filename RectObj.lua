@@ -1,6 +1,6 @@
 -- RectObj.lua
-
 -- RectObj is a helper class that is used by things that have dimensions and angles
+
 RectObj = class(PositionObj)
 
 function RectObj:init(x,y,w,h)
@@ -50,10 +50,12 @@ function RectObj:getSize()
     return self.w,self.h
 end
 
+-- return value is in degrees
 function RectObj:getAngle()
     return math.deg(self.angle)
 end
 
+-- check if t={x=x,y=y} is inside this rectangle
 function RectObj:inbounds(t)
     local x1,y1,x2,y2 = self:boundingBox()
     return (t.x>=x1 and t.y>=y1 and t.x<=x2 and t.y<=y2)

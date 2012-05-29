@@ -8,10 +8,8 @@
 	<array>
 		<string>PositionObj</string>
 		<string>RectObj</string>
-		<string>SpriteObj</string>
 		<string>Button</string>
 		<string>Panel</string>
-		<string>Screen</string>
 		<string>Main</string>
 	</array>
 	<key>Created</key>
