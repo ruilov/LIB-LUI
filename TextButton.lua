@@ -1,5 +1,6 @@
 -- TextButton.lua
 -- by Vega from the codea forums
+-- a button with rounded corners and nice color mgmt. Looks really good!
 
 TextButton = class(Button)
 
@@ -8,11 +9,11 @@ function TextButton:init(text,x,y,w,h,args)
 
     args = args or {}
     args.text = args.text or {}
+    args.text.textMode = CENTER
+    args.text.fill = args.text.fill or color(0,0,0,255)
+    args.text.fontSize = args.text.fontSize or 28
     
-    self.text = text
-    self.textColor = args.text.color or color(0,0,0,255)
-    self.font = args.text.font or "ArialRoundedMTBold"
-    self.fontSize = args.text.fontSize or 28
+    self.textElem = TextElem(text,w/2,h/2,args.text)
     
     self.topColor = args.topColor or color(255, 255, 255, 255) 
     self.bottomColor = args.bottomColor or color(255,255,255,255)
@@ -42,6 +43,7 @@ end
 function TextButton:touched(t)
     local didTouch = Button.touched(self,t)
     if not didTouch then self.pressed = false end -- make sure we go back to the original color
+    return didTouch
 end
 
 function TextButton:draw()
@@ -54,11 +56,7 @@ function TextButton:draw()
     self.myMesh:draw()
     
     -- draw the text
-    textMode(CENTER)
-    fill(self.textColor)
-    fontSize(self.fontSize)
-    font(self.font)
-    text(self.text, self.w/2,self.h/2)
+    self.textElem:draw()
     
     -- draw the border
     self:drawLines(self.verts)

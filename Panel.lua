@@ -43,6 +43,10 @@ function Panel:draw()
     self:forwardMsg("draw",false)
 end
 
+function Panel:keyboard(key)
+    self:forwardMsg("keyboard",false,key)
+end
+
 function Panel:touched(t)
     if not self.active then return nil end
     self:forwardMsg("touched",true,t)

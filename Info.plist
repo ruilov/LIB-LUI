@@ -9,6 +9,8 @@
 		<string>PositionObj</string>
 		<string>RectObj</string>
 		<string>Button</string>
+		<string>TextElem</string>
+		<string>Textbox</string>
 		<string>TextButton</string>
 		<string>Panel</string>
 		<string>Main</string>
