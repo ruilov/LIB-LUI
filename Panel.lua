@@ -39,6 +39,10 @@ function Panel:tick()
     self:forwardMsg("tick")
 end
 
+function Panel:draw()
+    self:forwardMsg("draw",false)
+end
+
 function Panel:touched(t)
     if not self.active then return nil end
     self:forwardMsg("touched",true,t)

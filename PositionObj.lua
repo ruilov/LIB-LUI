@@ -9,9 +9,12 @@ function PositionObj:init(x,y)
     self.y = y
 end
 
+function PositionObj:moveCB() end -- implemented by subclasses
+
 function PositionObj:translate(dx,dy)
     self.x = self.x + dx
     self.y = self.y + dy
+    self:moveCB()
 end
 
 function PositionObj:setPos(x,y)

@@ -19,21 +19,18 @@ end
 function RectObj:setSize(w,h)
     self.w = w
     self.h = h
+    self:moveCB()
 end
 
 -- ang in degrees
 function RectObj:rotate(ang)
     self.angle = self.angle + math.rad(ang)
+    self:moveCB()
 end
 
 function RectObj:setAngle(ang)
     self.angle = math.rad(ang)
-end
-
--- flips along the x-axis
-function RectObj:flipX()
-    self.x = self.x + self.w
-    self.w = self.w * (-1)
+    self:moveCB()
 end
 
 ---------------------- GETTERS -----------------------
