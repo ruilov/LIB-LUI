@@ -11,6 +11,10 @@ function Textbox:init(x,y,w)
     -- in font properties you can set fill,font,fontSize
     self.fontProperties = {font="Futura-CondensedExtraBold",fill=color(255,255,255)} 
     self:setFontSize(30)
+    self.cursorColor = color(206,206,206,255)
+    self.cursorWidth = 2
+    self.cursorMarginY = 4
+    self.align = "CENTER" -- can also be "LEFT"
     self.protected = false -- for passwords
     
     -- internal state
@@ -93,6 +97,7 @@ function Textbox:draw()
     local displayText = self:displayText()
     local textW = textSize(displayText)
     local textX = self.x + (self.w - textW)/2
+    if self.align == "LEFT" then textX = self.x end
     local textY = self.y
     if self.protected then textY = textY - self.h*.2 end
     text(displayText,textX,textY)
@@ -104,11 +109,11 @@ function Textbox:draw()
 
     -- draw the cursor
     if math.floor(ElapsedTime*4)%2 == 0 then
-        stroke(206, 206, 206, 255)
-        strokeWidth(2)
+        stroke(self.cursorColor)
+        strokeWidth(self.cursorWidth)
         local prefix = displayText:sub(1,self.cursorPos)
         local len = textSize(prefix)
-        line(textX+len,self.y+4,textX+len,self.y+self.h-8)
+        line(textX+len,self.y+self.cursorMarginY,textX+len,self.y+self.h-2*self.cursorMarginY)
     end
 
      popStyle()

@@ -1,19 +1,39 @@
 --[[
 function setup()
-    p = Panel(0,0)
-    local b = TextButton("OK",10,10,100,100,
-        {topColor=color(255,255,255,255),bottomColor=color(0,255,0,255)})
-    b.onEnded = function(b,t) TextButton.onEnded(b,t) print("HO") end
-    p:add(b)
+    local schema = {
+        title = "Bluetooth",
+        backButton = {
+            text = "General", 
+            callback = function() print("Pressed back") end
+        },
+        elems = {
+            {type="block",elems = {
+                {type="SimpleArrow", text = "About", callback = function() print("HI") end },
+                {type="SimpleArrow", text = "Software Update"},
+                {type="SimpleArrow", text = "Usage"},
+            }},
+            {type="blank",amount=30},
+            {type="text",text="Now Discovereable"},
+            {type="blank",amount=5},
+            {type="block",elems = {
+                {type="SimpleArrow", text = "Sounds"}
+            }},
+            {type="blank",amount=30},
+            {type="block",elems = {
+                {type="TextInput",label="Username"},
+                {type="SimpleArrow", text = "Bluetooth"}
+            }},
+        }
+    }
     
-    local b = Textbox(200,400,400)
-    p:add(b)
+    p = AppleScreen(schema)
 end
 
+
 function draw()
-    background(0)
+    background(218,221,226)
+    smooth()
     p:draw()
-    --p:translate(1,1)
 end
 
 function touched(t)

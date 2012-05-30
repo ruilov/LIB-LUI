@@ -7,7 +7,7 @@ function TextElem:init(text,x,y,args)
     self.text = text
     
     args = args or {}
-    self.font = args.font or "AmericanTypewriter-Bold"
+    self.font = args.font or "ArialRoundedMTBold"
     self.fontSize = args.fontSize or 20
     self.fill = args.fill or color(255,255,255,255)
     self.textMode = args.textMode or CORNER
