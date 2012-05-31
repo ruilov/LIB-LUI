@@ -4,7 +4,7 @@
 -- objs need to have a translate method since they are added with coords relative
 -- to this and need to be translated
 
-import("LIB Table")
+--import("LIB Table")
 
 Panel = class(PositionObj)
 

@@ -6,6 +6,7 @@
 	<string>Unknown</string>
 	<key>Buffer Order</key>
 	<array>
+		<string>Table</string>
 		<string>PositionObj</string>
 		<string>RectObj</string>
 		<string>Button</string>

@@ -16,37 +16,28 @@ function setup()
             {type="text",text="Now Discovereable"},
             {type="blank",amount=5},
             {type="block",elems = {
-                {type="TextInput", label = "username",shadowText="himan"},
-                {type="TextInput", label = "username"},
-                --[[
+                {type="TextInput", label = "username",shadowText="he-man"},
+                {type="TextInput", label = "nickname"},
                 {type="SimpleArrow", text = "Sounds",tag="temp"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                {type="SimpleArrow", text = "Sounds"},
-                --]]
             }},
             {type="blank",amount=30},
             {type="block",elems = {
-            --[[
-                {type="TextInput",label="Username"},
-                {type="SimpleArrow", text = "Bluetooth"}
-                --]]
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds"},
             }},
         }
     }
     
     p = AppleScreen(schema)
-    --p.taggedElems.temp:showHourGlass(true)
+    p.taggedElems.temp:showHourGlass(true)
     --p.taggedElems.temp:setColors(color(255,0,0),color(255,0,0))
 end
 
@@ -55,12 +46,6 @@ function draw()
     background(0)
     smooth()
     p:draw()
-    --[[
-    textMode(CORNER)
-    fontSize(20)
-    fill(255,0,0,255)
-    text("d"..ElapsedTime,100,100)
-    --]]
 end
 
 function touched(t)
