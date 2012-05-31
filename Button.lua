@@ -1,4 +1,5 @@
 -- Button.lua
+
 -- a little useful class for objects that know how to handle touches
 
 Button = class(RectObj)

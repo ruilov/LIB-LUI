@@ -1,5 +1,5 @@
 -- AppleSimpleArrow.lua
-
+-- those buttons with the little arrow
 AppleSimpleArrow = class(TextButton)
 
 function AppleSimpleArrow:init(text,x,y,w,args)

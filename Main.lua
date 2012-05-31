@@ -1,3 +1,4 @@
+-- Main.lua
 
 function setup()
     local schema = {
@@ -59,4 +60,3 @@ end
 function keyboard(key)
     p:keyboard(key)
 end
-

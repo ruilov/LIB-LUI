@@ -1,5 +1,5 @@
 -- AppleScreen.lua
-
+-- takes a schema and shows the screen, handles everything really
 AppleScreen = class(Panel)
 
 function AppleScreen:init(schema)

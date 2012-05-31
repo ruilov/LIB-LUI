@@ -1,4 +1,5 @@
 -- RectObj.lua
+
 -- RectObj is a helper class that is used by things that have dimensions and angles
 
 RectObj = class(PositionObj)

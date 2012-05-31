@@ -1,4 +1,5 @@
 -- TextElem.lua
+
 -- encapsulates codea's text api so that text can be put inside panels (for example)
 TextElem = class(PositionObj)
 
@@ -47,4 +48,3 @@ function TextElem:applyProperties()
     fill(self.fill)
     textMode(self.textMode)
 end
-

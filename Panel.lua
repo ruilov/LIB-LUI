@@ -1,4 +1,5 @@
 -- Panel.lua
+
 -- A panel is a container for other panels or objects that can be drawn. Used to form a 
 -- hierarchical representation of what's in the screen
 -- objs need to have a translate method since they are added with coords relative

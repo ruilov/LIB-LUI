@@ -1,4 +1,4 @@
--- AppleHourGlass
+-- AppleHourGlass.lua
 
 AppleHourGlass = class(RectObj)
 
@@ -40,4 +40,3 @@ function AppleHourGlass:draw()
     self.pointing = (self.pointing + 5)%360
     popStyle()
 end
-

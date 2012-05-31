@@ -1,4 +1,5 @@
 -- PositionObj.lua
+
 -- A position object is antyhing that has a position, almost silly really, except
 -- that if offers a few useful getters and setters so that you don't need to 
 -- define these in your every class

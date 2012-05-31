@@ -1,4 +1,5 @@
 -- TextBanner.lua
+
 -- TextBanner is a text elem with a background
 -- supported background types are round,square,back (for back buttons),bottomRound,topRound
 

@@ -10,11 +10,11 @@
 		<string>PositionObj</string>
 		<string>RectObj</string>
 		<string>Button</string>
+		<string>Panel</string>
 		<string>TextElem</string>
 		<string>TextBanner</string>
 		<string>TextButton</string>
 		<string>Textbox</string>
-		<string>Panel</string>
 		<string>AppleHourGlass</string>
 		<string>AppleSimpleArrow</string>
 		<string>AppleTextbox</string>

@@ -1,3 +1,5 @@
+-- AppleTextbox.lua
+
 AppleTextbox = class(Panel)
 
 function AppleTextbox:init(label,x,y,w,args)

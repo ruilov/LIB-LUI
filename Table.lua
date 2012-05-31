@@ -1,5 +1,3 @@
-NO_IMPORT = true
-
 -- Table.lua
 -- contains various useful functions related to tables
 Table = class()
