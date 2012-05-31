@@ -4,18 +4,24 @@ AppleHourGlass = class(RectObj)
 
 function AppleHourGlass:init(x,y,w,h)
     RectObj.init(self,x,y,w,h)
-    
+    self:makeLines()
+    self.pointing = 0
+end
+
+function AppleHourGlass:moveCB()
+    self:makeLines()
+end
+
+function AppleHourGlass:makeLines()
     self.lines = {}
     for ang = 0,360,30 do
         local a = math.rad(ang)
-        local x1 = w * math.cos(a) * .25 + x + w/2
-        local y1 = h * math.sin(a) * .25 + y + h/2
-        local x2 = w * math.cos(a) * .5 + x + w/2
-        local y2 = h * math.sin(a) * .5 + y + h/2
+        local x1 = self.w * math.cos(a) * .25 + self.x + self.w/2
+        local y1 = self.h * math.sin(a) * .25 + self.y + self.h/2
+        local x2 = self.w * math.cos(a) * .5 + self.x + self.w/2
+        local y2 = self.h * math.sin(a) * .5 + self.y + self.h/2
         table.insert(self.lines,{x1=x1,y1=y1,x2=x2,y2=y2,ang=ang})
     end
-    
-    self.pointing = 0
 end
 
 function AppleHourGlass:draw()

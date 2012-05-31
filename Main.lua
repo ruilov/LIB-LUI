@@ -16,10 +16,10 @@ function setup()
             {type="text",text="Now Discovereable"},
             {type="blank",amount=5},
             {type="block",elems = {
-                {type="TextInput", label = "username"},
+                {type="TextInput", label = "username",shadowText="himan"},
                 {type="TextInput", label = "username"},
                 --[[
-                {type="SimpleArrow", text = "Sounds"},
+                {type="SimpleArrow", text = "Sounds",tag="temp"},
                 {type="SimpleArrow", text = "Sounds"},
                 {type="SimpleArrow", text = "Sounds"},
                 {type="SimpleArrow", text = "Sounds"},
@@ -46,6 +46,8 @@ function setup()
     }
     
     p = AppleScreen(schema)
+    --p.taggedElems.temp:showHourGlass(true)
+    --p.taggedElems.temp:setColors(color(255,0,0),color(255,0,0))
 end
 
 

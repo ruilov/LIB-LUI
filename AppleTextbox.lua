@@ -41,6 +41,7 @@ function AppleTextbox:touched(t)
     
     if self.textbox.selected and self.textbox.textIsShadow then
         self.textbox.text = ""
+        self.textbox.cursorPos = 0
         self.textbox.textIsShadow = false
         self.textbox.fontProperties.font = "ArialRoundedMTBold"
         self.textbox.fontProperties.fill=color(46, 112, 112, 255)

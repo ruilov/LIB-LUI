@@ -16,6 +16,14 @@ function AppleSimpleArrow:init(text,x,y,w,args)
     self.banner.textElem:translate(15 - self.banner.textElem.x,-th/2)
 end
 
+function AppleSimpleArrow:setColors(top,bot)
+    self.topColor = top
+    self.bottomColor = bot
+    self.banner.topColor = top
+    self.banner.bottomColor = bot
+    self.banner:recolor()
+end
+
 -- sets some text on the right side
 function AppleSimpleArrow:setRightText(text)
     self.bannerRight = TextBanner(text,self.x+self.w,self.y,0,self.h,self.args)    
@@ -31,6 +39,12 @@ function AppleSimpleArrow:showHourGlass(toggle)
     end
     
     self.hourGlass = AppleHourGlass(self.x+self.w-25,self.y+(self.h-18)/2,18,18)
+end
+
+function AppleSimpleArrow:translate(dx,dy)
+    TextButton.translate(self,dx,dy)
+    if self.bannerRight then self.bannerRight:translate(dx,dy) end
+    if self.hourGlass then self.hourGlass:translate(dx,dy) end
 end
 
 function AppleSimpleArrow:draw()

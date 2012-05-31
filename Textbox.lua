@@ -34,10 +34,12 @@ end
 
 -- call back for when a key is pressed
 function Textbox:keyboard(key)
+    
     -- if not active, ignore
     if not self.selected then return nil end
     
     if key == BACKSPACE then
+        print(self.cursorPos)
         -- note if we're already at the start, nothing to do
         if self.cursorPos > 0 then
             local prefix = self.text:sub(1,self.cursorPos-1)

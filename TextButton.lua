@@ -14,6 +14,8 @@ function TextButton:init(text,x,y,w,h,args)
     self.bottomColor = args.bottomColor or color(255,255,255,255)
     self.pressedTopColor = args.pressedTopColor or color(127,127,127,255)
     self.pressedBottomColor = args.pressedBottomColor or color(127,127,127,255)
+    
+    --print(self.pressed)
 end
 
 function TextButton:translate(dx,dy)
@@ -45,7 +47,7 @@ end
 
 function TextButton:touched(t)
     local didTouch = Button.touched(self,t)
-    if not didTouch then self:setUnpressed() end -- make sure we go back to the original color
+    if not didTouch and self.pressed then self:setUnpressed() end
     return didTouch
 end
 
