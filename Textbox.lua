@@ -59,6 +59,8 @@ function Textbox:keyboard(key)
             self.cursorPos = self.cursorPos + 1
         end
     end
+    
+    if self.keycallback then self.keycallback(self.text) end
 end
 
 function Textbox:displayText()
@@ -130,7 +132,7 @@ function Textbox:select()
     self.selected = true
     -- move the cursor to the end
     self.cursorPos = self:displayText():len()
-    showKeyboard()
+    GLOBAL_SHOWKEYBOARD = true
 end
 
 function Textbox:unselect()

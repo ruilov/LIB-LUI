@@ -6,7 +6,7 @@ TextButton = class(Button)
 
 function TextButton:init(text,x,y,w,h,args)
     Button.init(self,x,y,w,h)
-
+    self.pressed = false
     self.banner = TextBanner(text,x,y,w,h,args)
     
     args = args or {}
@@ -16,13 +16,20 @@ function TextButton:init(text,x,y,w,h,args)
     self.pressedBottomColor = args.pressedBottomColor or color(127,127,127,255)
 end
 
+function TextButton:translate(dx,dy)
+    Button.translate(self,dx,dy)
+    self.banner:translate(dx,dy)
+end
+
 function TextButton:setUnpressed()
+    self.pressed = false
     self.banner.topColor = self.topColor
     self.banner.bottomColor = self.bottomColor
     self.banner:recolor()
 end
 
 function TextButton:setPressed()
+    self.pressed = true
     self.banner.topColor = self.pressedTopColor
     self.banner.bottomColor = self.pressedBottomColor
     self.banner:recolor()

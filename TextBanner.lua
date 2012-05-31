@@ -38,6 +38,13 @@ function TextBanner:moveCB()
     self:recolor()
 end
 
+-- for a translation we don't have to call moveCB so let's overwrite that
+-- method. This saves a lot of speed
+function TextBanner:translate(dx,dy)
+    self.x = self.x + dx
+    self.y = self.y + dy
+end
+
 function TextBanner:draw()
     pushMatrix()
     pushStyle()
@@ -58,9 +65,10 @@ end
 function TextBanner:createVerts()
     local w,h = self.w,self.h 
     local v = {}
-    if self.type == "round" then
-        local r = math.max(math.floor(math.min(w,h)/100+.5),1)
-        
+    if w == 0 then return v end
+    
+    local r = 1    
+    if self.type == "round" then    
         v[1] = vec2(w,6*r)
         v[2] = vec2(w-r,4*r)
         v[3] = vec2(w-2*r,2*r)
@@ -85,8 +93,6 @@ function TextBanner:createVerts()
         v[19] = vec2(w-r,h-4*r)
         v[20] = vec2(w,h-6*r)
     elseif self.type == "bottomRound" then
-        local r = math.max(math.floor(math.min(w,h)/100+.5),1)
-        
         v[1] = vec2(w,6*r)
         v[2] = vec2(w-r,4*r)
         v[3] = vec2(w-2*r,2*r)
@@ -102,8 +108,6 @@ function TextBanner:createVerts()
         v[11] = vec2(0,h)
         v[12] = vec2(w,h)
     elseif self.type == "topRound" then
-        local r = math.max(math.floor(math.min(w,h)/100+.5),1)
-        
         v[1] = vec2(w,0)
         v[2] = vec2(0,0)
         
@@ -146,7 +150,8 @@ function TextBanner:drawLines(v)
 end
 
 function TextBanner:recolor()
-    for i=1,3 * #self.verts - 6 do
+    --print(#self.myMesh.vertices,3 * #self.verts - 6)
+    for i=1,#self.myMesh.vertices do
         if self.myMesh.vertices[i].y > self.h/2 then
             self.vertColors[i] = self.topColor
         else

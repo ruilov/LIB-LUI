@@ -13,11 +13,23 @@ function TextElem:init(text,x,y,args)
     self.textMode = args.textMode or CORNER
 end
 
+function TextElem:showHourGlass(toggle)
+    if not toggle then
+        self.hourGlass = nil
+        return nil
+    end
+    
+    local w,h = self:textSize()
+    self.hourGlass = AppleHourGlass(self.x+w*1.1,self.y+(h-18)/2,18,18)
+end
+
 function TextElem:draw()
     pushStyle()
     self:applyProperties()
     text(self.text,self.x,self.y)
     popStyle()
+    
+    if self.hourGlass then self.hourGlass:draw() end
 end
 
 function TextElem:textSize()
